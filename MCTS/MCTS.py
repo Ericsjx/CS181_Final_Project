@@ -1,7 +1,6 @@
 from game import Reversi
 import math
 import random 
-import copy
 
 class MCTSNode:
     def __init__(self, state, parent=None, move=None):
