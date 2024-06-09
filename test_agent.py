@@ -66,8 +66,7 @@ def test_agents(agent1, agent2, game_class, games=100):
 
         # 交换起始玩家
         agent1, agent2 = agent2, agent1
-        # agent1.reset()
-        # agent2.reset()
+        agent1_wins, agent2_wins=agent2_wins, agent1_wins
 
     print(f"Agent 1 ({agent1.__class__.__name__}) wins: {agent1_wins}")
     print(f"Agent 2 ({agent2.__class__.__name__}) wins: {agent2_wins}")
