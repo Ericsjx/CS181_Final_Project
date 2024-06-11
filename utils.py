@@ -34,6 +34,12 @@ class ReversiGUI:
                 else:
                     self.cells[r][c].config(text='', bg='green')
 
+    def reset(self, game, agent1, agent2):
+        self.game = game
+        self.agent1 = agent1
+        self.agent2 = agent2
+        self.update_board() 
+
     def make_move(self, row, col):
         if self.game.make_move(row, col, self.game.current_player):
             self.update_board()
