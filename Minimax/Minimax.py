@@ -4,7 +4,7 @@ class MinimaxAI:
         self.depth = depth
 
     def select_move(self, game):
-        def minimax(game, depth, maximizing_player):
+        def minimax(game, depth, alpha, beta, maximizing_player):
             if depth == 0 or game.is_game_over():
                 return self.evaluate_board(game), None
 
@@ -19,10 +19,13 @@ class MinimaxAI:
                 for move in valid_moves:
                     new_game = game.copy()
                     new_game.make_move(move[0], move[1], self.player)
-                    eval, _ = minimax(new_game, depth - 1, False)
+                    eval, _ = minimax(new_game, depth - 1, alpha, beta, False)
                     if eval > max_eval:
                         max_eval = eval
                         best_move = move
+                    alpha = max(alpha, eval)
+                    if beta <= alpha:
+                        break  # Beta剪枝
                 return max_eval, best_move
             else:
                 min_eval = float('inf')
@@ -31,13 +34,16 @@ class MinimaxAI:
                 for move in valid_moves:
                     new_game = game.copy()
                     new_game.make_move(move[0], move[1], opponent)
-                    eval, _ = minimax(new_game, depth - 1, True)
+                    eval, _ = minimax(new_game, depth - 1, alpha, beta, True)
                     if eval < min_eval:
                         min_eval = eval
                         best_move = move
+                    beta = min(beta, eval)
+                    if beta <= alpha:
+                        break  # Alpha剪枝
                 return min_eval, best_move
 
-        _, best_move = minimax(game, self.depth, True)
+        _, best_move = minimax(game, self.depth, float('-inf'), float('inf'), True)
 
         if best_move is None:
             valid_moves = game.get_valid_moves(self.player)

@@ -17,7 +17,8 @@ if __name__ == '__main__':
     agent2 = RandomAI(Reversi.WHITE)  # Minimax代理
     #agent2=GreedyAI(Reversi.WHITE)
     #agent2 = MinimaxAI(Reversi.WHITE,depth=3)
-    train_agent_ApproximateQLearning(episodes=4000,agent=agent1,opponent=agent2,game_class=Reversi)
+    #agent2 = MCTSAgent(Reversi.WHITE, simulations=1000)  # MCTS代理
+    train_agent_ApproximateQLearning(episodes=4000,agent=agent1,opponent=RandomAI(Reversi.WHITE),game_class=Reversi)
     agent1_wins, agent2_wins, draws = test_agents(agent1, agent2, Reversi, games=100)
 
 
@@ -31,7 +32,6 @@ if __name__ == '__main__':
 #     player2 = RandomAI(Reversi.WHITE)
 #     gui = ReversiGUI(root, player1, player2)
 
-#     # 开始训练并在GUI中显示
-#     train_with_gui(episodes=4000, agent1=player1, agent2=player2, gui=gui)
+
 
 #     root.mainloop()
