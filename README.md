@@ -15,7 +15,7 @@ This project implements several AI algorithms to play the game of Reversi (also 
 
 Ensure you have the following installed:
 
-- Python 3.6 or higher
+- Python 3.9
 - Required Python packages (can be installed via `requirements.txt`)
 
 To install the required packages, run:
