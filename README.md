@@ -31,7 +31,6 @@ pip install -r requirements.txt
 2. Locate the section where the agents are defined.
 3. Uncomment the lines for `agent1` and `agent2` to select the agents you want to compete against each other. For example:
    ```python
-   # Uncomment the agents you want to use
    agent1 = RandomAI(Reversi.BLACK)
    agent2 = GreedyAI(Reversi.WHITE)
    ```
