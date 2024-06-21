@@ -17,7 +17,6 @@ def play_game(agent1, agent2, game_class, verbose=False):
             if move is not None:
                 game.make_move(move[0], move[1], game.current_player)
         else:
-            # 如果没有合法移动，切换当前玩家
             game.current_player = Reversi.BLACK if game.current_player == Reversi.WHITE else Reversi.WHITE
 
         current_agent = agent1 if game.current_player == agent1.player else agent2
@@ -35,7 +34,6 @@ def play_game(agent1, agent2, game_class, verbose=False):
 
 
 def test_agents(agent1, agent2, game_class, games=100, gui=True):
-    # 游戏胜利次数统计变量
     agent1_wins = 0
     agent2_wins = 0
     draws = 0
@@ -56,7 +54,6 @@ def test_agents(agent1, agent2, game_class, games=100, gui=True):
         nonlocal agent1, agent2, agent1_wins, agent2_wins, draws, games, gui_instance
 
         if games > 0:
-            # 创建游戏对象
             print(f"Game {100 - games + 1}:")
             game = game_class()
 
@@ -65,7 +62,6 @@ def test_agents(agent1, agent2, game_class, games=100, gui=True):
                 root.update_idletasks()
                 root.update()
 
-                # 自动进行游戏直到结束
                 while not game.is_game_over():
                     move = agent1.select_move(game)
                     if move:
@@ -103,19 +99,17 @@ def test_agents(agent1, agent2, game_class, games=100, gui=True):
                 else:
                     draws += 1
 
-            # 交换起始玩家
             agent1, agent2 = agent2, agent1
             agent1_wins,agent2_wins = agent2_wins,agent1_wins
             games -= 1
             if gui:
-                root.after(1000, play_and_update)  # 延迟1秒后开始下一局
+                root.after(1000, play_and_update) 
             else:
-                play_and_update()  # 立即开始下一局
+                play_and_update()  
         else:
             if gui:
                 root.destroy()
 
-            # 输出统计结果
             print(f"Agent 1 ({agent1.__class__.__name__}) wins: {agent1_wins}")
             print(f"Agent 2 ({agent2.__class__.__name__}) wins: {agent2_wins}")
             print(f"Draws: {draws}")
@@ -130,11 +124,9 @@ def test_agents(agent1, agent2, game_class, games=100, gui=True):
 
 
 if __name__ == "__main__":
-    # 初始化 Q-learning 代理和贪心代理
     q_agent = QLearningAI(player=Reversi.BLACK)
     greedy_agent = RandomAI(player=Reversi.WHITE)
 
-    # 测试 Q-learning 代理
     agent1_wins, agent2_wins, draws = test_agents(q_agent, greedy_agent, Reversi, games=100, gui=False)
     print(f"Q-Learning Agent wins: {agent1_wins}")
     print(f"Random Agent wins: {agent2_wins}")
