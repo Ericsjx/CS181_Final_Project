@@ -49,7 +49,7 @@ When testing `QLearningAI` or `ApproximateQLearningAI`, ensure they are set to p
 
 To start the test, open a terminal and run the following command:
 ```bash
-python reversi_ai.py
+python main.py
 ```
 This will launch the game with a graphical user interface (GUI) by default.
 
@@ -57,7 +57,7 @@ This will launch the game with a graphical user interface (GUI) by default.
 
 If you prefer to run the test without the GUI, use the following command:
 ```bash
-python reversi_ai.py --no-GUI
+python main.py --no-GUI
 ```
 
 ## File Structure
