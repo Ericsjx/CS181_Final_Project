@@ -12,10 +12,10 @@ import argparse
 
 if __name__ == '__main__':
     # agent1 = RandomAI(Reversi.BLACK)
-    agent1 = MCTSAgent(Reversi.BLACK, simulations=1000)  
+    # agent1 = MCTSAgent(Reversi.BLACK, simulations=1000)  
     # agent1 = ApproximateQLearningAI(Reversi.BLACK)
     # agent1 = QLearningAI(Reversi.BLACK)
-    # agent1 = MinimaxAI(Reversi.BLACK,depth=3)
+    agent1 = MinimaxAI(Reversi.BLACK,depth=3)
     # agent1 = GreedyAI(Reversi.BLACK)
 
     agent2 = RandomAI(Reversi.WHITE) 
