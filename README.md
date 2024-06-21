@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ### Important Note
 
-- When testing `QLearningAI` or `ApproximateQLearningAI`, ensure they are set to play as BLACK because we have default settings that create a WHITE player for training. For example:
+When testing `QLearningAI` or `ApproximateQLearningAI`, ensure they are set to play as BLACK because we have default settings that create a WHITE player for training. For example:
   ```python
   # Uncomment the following lines to select the agents:
   agent1 = QLearningAI(Reversi.BLACK)
