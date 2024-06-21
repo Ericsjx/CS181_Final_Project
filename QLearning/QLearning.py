@@ -7,9 +7,9 @@ from collections import defaultdict
 class QLearningAI:
     def __init__(self, player, alpha=0.1, gamma=0.9, epsilon=0.1, default_q=0.0):
         self.player = player
-        self.alpha = alpha  # 学习率
-        self.gamma = gamma  # 折扣因子
-        self.epsilon = epsilon  # 探索率
+        self.alpha = alpha  
+        self.gamma = gamma  
+        self.epsilon = epsilon  
         self.default_q = default_q
         self.q_table = defaultdict(lambda: default_q)
 
@@ -25,7 +25,7 @@ class QLearningAI:
     def update_q_value(self, state, action, reward, next_state, game):
         best_next_action = self.select_best_action(next_state, game)
         if best_next_action is None:
-            best_next_q_value = 0  # 如果没有有效动作，则Q值为0
+            best_next_q_value = 0  
         else:
             best_next_q_value = self.get_q_value(next_state, best_next_action)
         td_target = reward + self.gamma * best_next_q_value
@@ -84,7 +84,7 @@ def calculate_reward(game, player):
             if board[i][j] == player.player:
                 reward += weight_matrix[i][j]
                 #print(f"player in {i}{j}")
-            elif board[i][j] == 3 - player.player:  # Assuming 1 and 2 are the two players
+            elif board[i][j] == 3 - player.player:  
                 #print(f"opponent in {i}{j}")
                 reward -= weight_matrix[i][j]
     #print(f"run calculate_reward {reward}")
@@ -99,7 +99,7 @@ def get_reward(game, agent, opponent, reward_win, reward_loss, reward_draw):
             return reward_loss
         else:
             return reward_draw
-    return calculate_reward(game, agent)  # 根据棋盘上的棋子位置返回奖励
+    return calculate_reward(game, agent)  
 
 def get_final_reward(winner, agent, opponent, reward_win, reward_loss, reward_draw):
     if winner:
