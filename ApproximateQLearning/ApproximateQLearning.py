@@ -132,7 +132,7 @@ def calculate_reward(game, player):
             elif board[i][j] == 3 - player.player:  # Assuming 1 and 2 are the two players
                 reward -= weight_matrix[i][j]
     
-    # 增加边角占领奖励
+
     corners = [(0, 0), (0, 7), (7, 0), (7, 7)]
     for corner in corners:
         if board[corner[0]][corner[1]] == player.player:
@@ -209,4 +209,4 @@ def train_agent_ApproximateQLearning(episodes, agent, opponent, game_class, rewa
             total_reward = 0
 
     agent.save_weights('weights.pkl')
-    return total_rewards, win_rate  # 返回训练的奖励和胜率数据
+    return total_rewards, win_rate  
