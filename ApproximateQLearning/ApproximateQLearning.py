@@ -164,8 +164,8 @@ def train_agent_ApproximateQLearning(episodes, agent, opponent, game_class, rewa
     except FileNotFoundError:
         print(f"未找到 weights.pkl 文件。开始使用初始权重。")
 
-    total_rewards = []  # 记录每次训练的总奖励
-    win_rate = []  # 记录每次训练的胜率
+    total_rewards = []  
+    win_rate = []  
 
     for episode in range(episodes):
         game = game_class()
