@@ -1,4 +1,6 @@
 numpy
-matplotlib
-scikit-learn
+tkinter
 argparse
+pickle
+random
+math
