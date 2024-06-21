@@ -75,8 +75,5 @@ python reversi_ai.py --no-GUI
 
 ## Authors
 
-This project was developed by Jiaxuan Sun and Yanming Liu. For any questions or feedback, please contact {sunjx2022, liuym2022\}@shanghaitech.edu.cn}.
+This project was developed by Jiaxuan Sun and Yanming Liu. For any questions or feedback, please contact sunjx2022@shanghaitech.edu.cn and liuym2022@shanghaitech.edu.cn.
 
----
-
-Please review and let me know if there are any additional details or changes you would like to include.
