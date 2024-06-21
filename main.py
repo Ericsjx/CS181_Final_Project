@@ -11,15 +11,17 @@ from test_agent import test_agents
 import argparse
 
 if __name__ == '__main__':
-    agent1 = RandomAI(Reversi.BLACK)
-    #agent1 = MCTSAgent(Reversi.BLACK, simulations=1000)  # MCTS代理
-    #agent1 = ApproximateQLearningAI(Reversi.BLACK)
-    #agent1 = QLearningAI(Reversi.BLACK)
-    #agent1 = MinimaxAI(Reversi.BLACK,depth=3)
-    #agent2 = RandomAI(Reversi.WHITE)  # Minimax代理
-    agent2 = GreedyAI(Reversi.WHITE)
-    #agent2 = MinimaxAI(Reversi.WHITE,depth=3)
-    #agent2 = MCTSAgent(Reversi.WHITE, simulations=1000)  # MCTS代理
+    # agent1 = RandomAI(Reversi.BLACK)
+    agent1 = MCTSAgent(Reversi.BLACK, simulations=1000)  
+    # agent1 = ApproximateQLearningAI(Reversi.BLACK)
+    # agent1 = QLearningAI(Reversi.BLACK)
+    # agent1 = MinimaxAI(Reversi.BLACK,depth=3)
+    # agent1 = GreedyAI(Reversi.BLACK)
+
+    agent2 = RandomAI(Reversi.WHITE) 
+    # agent2 = GreedyAI(Reversi.WHITE)
+    # agent2 = MinimaxAI(Reversi.WHITE,depth=3)
+    #agent2 = MCTSAgent(Reversi.WHITE, simulations=1000) 
     parser = argparse.ArgumentParser(description="Reversi AI")
     parser.add_argument("--no-GUI", action="store_true", help="Run tests without GUI")
     args = parser.parse_args()
