@@ -6,10 +6,10 @@ from game import Reversi
 class ApproximateQLearningAI:
     def __init__(self, player, alpha=0.1, gamma=0.9, epsilon=0.1, feature_size=133):
         self.player = player
-        self.alpha = alpha  # 学习率
-        self.gamma = gamma  # 折扣因子
-        self.epsilon = epsilon  # 探索率
-        self.weights = np.zeros(feature_size)  # 初始化权重
+        self.alpha = alpha 
+        self.gamma = gamma  
+        self.epsilon = epsilon  
+        self.weights = np.zeros(feature_size)  
 
     def get_state(self, game):
         return tuple(map(tuple, game.board))
@@ -20,21 +20,21 @@ class ApproximateQLearningAI:
         i, j = action
         features[i * 8 + j] = 1
 
-        # 增加边角特征
+
         corners = [(0, 0), (0, 7), (7, 0), (7, 7)]
         for corner in corners:
             if board[corner[0]][corner[1]] == self.player:
                 features[64 + corners.index(corner)] = 1
 
-        # 增加稳定棋子特征
+
         stability = self.calculate_stability(board)
         features[68:132] = stability.flatten()
 
-        # 增加行动力特征
+
         valid_moves = len(game.get_valid_moves(self.player))
         features[132] = valid_moves
 
-        # 归一化特征
+
         if np.linalg.norm(features) != 0:
             features = features / np.linalg.norm(features)
 
@@ -42,7 +42,7 @@ class ApproximateQLearningAI:
 
     def calculate_stability(self, board):
         stability = np.zeros((8, 8))
-        # 计算稳定棋子的示例算法，可以更复杂
+
         for i in range(8):
             for j in range(8):
                 if board[i][j] == self.player:
@@ -58,13 +58,13 @@ class ApproximateQLearningAI:
         features = self.get_features(state, action, game)
         best_next_action = self.select_best_action(next_state, game)
         if best_next_action is None:
-            best_next_q_value = 0  # 如果没有有效动作，则Q值为0
+            best_next_q_value = 0  
         else:
             best_next_q_value = self.get_q_value(next_state, best_next_action, game)
         current_q_value = self.get_q_value(state, action, game)
         td_target = reward + self.gamma * best_next_q_value
         td_delta = td_target - current_q_value
-        if not np.isnan(td_delta) and not np.isnan(features).any():  # 防止td_delta和features为nan
+        if not np.isnan(td_delta) and not np.isnan(features).any():  
             self.weights += self.alpha * td_delta * features
 
     def select_best_action(self, state, game):
@@ -149,7 +149,7 @@ def get_reward(game, agent, opponent, reward_win, reward_loss, reward_draw):
             return reward_loss
         else:
             return reward_draw
-    return calculate_reward(game, agent)  # 根据棋盘上的棋子位置返回奖励
+    return calculate_reward(game, agent)  
 
 def get_final_reward(winner, agent, opponent, reward_win, reward_loss, reward_draw):
     if winner:
