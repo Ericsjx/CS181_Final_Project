@@ -31,6 +31,7 @@ pip install -r requirements.txt
 2. Locate the section where the agents are defined.
 3. Uncomment the lines for `agent1` and `agent2` to select the agents you want to compete against each other. For example:
    ```python
+   # Uncomment the following lines to select the agents:
    agent1 = RandomAI(Reversi.BLACK)
    agent2 = GreedyAI(Reversi.WHITE)
    ```
@@ -74,7 +75,7 @@ python reversi_ai.py --no-GUI
 
 ## Authors
 
-This project was developed by [Your Team Name]. For any questions or feedback, please contact [Your Contact Information].
+This project was developed by Jiaxuan Sun and Yanming Liu. For any questions or feedback, please contact {sunjx2022, liuym2022\}@shanghaitech.edu.cn}.
 
 ---
 
