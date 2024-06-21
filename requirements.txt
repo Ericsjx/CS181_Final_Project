@@ -1,5 +1,4 @@
 numpy
 argparse
-pickle
 random
 math
