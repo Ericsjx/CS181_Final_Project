@@ -48,14 +48,14 @@ class MinimaxAI:
         if best_move is None:
             valid_moves = game.get_valid_moves(self.player)
             if valid_moves:
-                best_move = valid_moves[0]  # 如果没有明确的最佳移动，选择第一个合法移动
+                best_move = valid_moves[0]  
             else:
-                return None  # 没有合法移动
+                return None  
 
         return best_move
 
     def evaluate_board(self, game):
-        # 更加精细的评估函数
+
         weight_matrix = [
             [100, -20, 10, 5, 5, 10, -20, 100],
             [-20, -50, -2, -2, -2, -2, -50, -20],
